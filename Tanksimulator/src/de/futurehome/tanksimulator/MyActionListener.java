@@ -32,6 +32,17 @@ public class MyActionListener implements ActionListener {
 					f.lblFuellstand.setText("Du musst Tanken");
 				
 				}
+				 if (obj == f.btnZuruecksetzen) {
+					double setNull = f.myTank.getFuellstand();
+				    setNull = setNull - setNull;
+				    f.lblFuellstand.setText("" + setNull);
+					
+				 }
+				
+				
+				
+				
+				
 			}
 
 		}

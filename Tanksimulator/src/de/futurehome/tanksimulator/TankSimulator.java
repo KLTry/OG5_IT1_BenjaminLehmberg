@@ -9,7 +9,9 @@ import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
 import javax.swing.JProgressBar;
-import javax.swing.JSlider; // Import für den JSlider
+import javax.swing.JScrollPane; // Import für ScrollBars
+import javax.swing.JSlider;
+import javax.swing.JTextArea;  // Import für mehrzeiligen Text
 
 @SuppressWarnings("serial")
 public class TankSimulator extends Frame {
@@ -20,9 +22,12 @@ public class TankSimulator extends Frame {
     public Label lblFuellstand = new Label("0.0 L");
     public JProgressBar prgFuellstand = new JProgressBar(0, 200);
 
-    // Slider für den Verbrauch von 1 bis 4 Litern
     public JSlider sldVerbrauch = new JSlider(1, 4, 2);
     public Label lblVerbrauchText = new Label("Verbrauch: 2 L");
+
+    // Neues Log-Fenster (Höhe: 6 Zeilen, Breite: 30 Spalten)
+    public JTextArea txtLog = new JTextArea(6, 30);
+    private JScrollPane scrollLog = new JScrollPane(txtLog);
 
     public Button btnBeenden = new Button("Beenden");
     public Button btnEinfuellen = new Button("Einfüllen");
@@ -30,9 +35,10 @@ public class TankSimulator extends Frame {
     public Button btnZuruecksetzen = new Button("Zurücksetzen");
 
     private Panel pnlNorth = new Panel();
-    private Panel pnlCenter = new Panel(new GridLayout(2, 1)); // 2 Zeilen für Status & Slider
+    private Panel pnlCenter = new Panel(new GridLayout(3, 1)); // Auf 3 Zeilen erweitert
     private Panel pnlFuellstand = new Panel(new FlowLayout());
     private Panel pnlSlider = new Panel(new FlowLayout());
+    private Panel pnlLog = new Panel(new FlowLayout());
     private Panel pnlSouth = new Panel(new GridLayout(1, 0));
 
     private MyActionListener myActionListener = new MyActionListener(this);
@@ -42,11 +48,12 @@ public class TankSimulator extends Frame {
 
         myTank = new Tank(0);
 
-        // Einstellungen für den Fortschrittsbalken
+        // Einstellungen für das Log-Fenster
+        txtLog.setEditable(false); // Der Nutzer soll hier nicht tippen können
+
         prgFuellstand.setValue(0);
         prgFuellstand.setStringPainted(true);
 
-        // Einstellungen für den Slider (1 bis 4 Liter)
         sldVerbrauch.setMajorTickSpacing(1);
         sldVerbrauch.setPaintTicks(true);
         sldVerbrauch.setPaintLabels(true);
@@ -54,17 +61,18 @@ public class TankSimulator extends Frame {
         this.lblUeberschrift.setFont(new Font("", Font.BOLD, 16));
         this.pnlNorth.add(this.lblUeberschrift);
 
-        // Füllstandselemente im pnlFuellstand platzieren
         this.pnlFuellstand.add(this.lblFuellstand);
         this.pnlFuellstand.add(this.prgFuellstand);
 
-        // Slider-Elemente im pnlSlider platzieren
         this.pnlSlider.add(this.lblVerbrauchText);
         this.pnlSlider.add(this.sldVerbrauch);
 
-        // Beide Unterpanels im pnlCenter zusammenfassen
+        // ScrollPane in das Log-Panel einfügen
+        this.pnlLog.add(scrollLog);
+
         this.pnlCenter.add(this.pnlFuellstand);
         this.pnlCenter.add(this.pnlSlider);
+        this.pnlCenter.add(this.pnlLog);
 
         this.pnlSouth.add(this.btnEinfuellen);
         this.pnlSouth.add(this.btnVerbrauchen);
@@ -78,12 +86,11 @@ public class TankSimulator extends Frame {
         this.pack();
         this.setVisible(true);
 
-        // Ereignissteuerung für Buttons und Slider
         this.btnEinfuellen.addActionListener(myActionListener);
         this.btnVerbrauchen.addActionListener(myActionListener);
         this.btnBeenden.addActionListener(myActionListener);
         this.btnZuruecksetzen.addActionListener(myActionListener);
-        this.sldVerbrauch.addChangeListener(myActionListener); // ChangeListener für Schieberegler
+        this.sldVerbrauch.addChangeListener(myActionListener);
     }
 
     public static void main(String argv[]) {

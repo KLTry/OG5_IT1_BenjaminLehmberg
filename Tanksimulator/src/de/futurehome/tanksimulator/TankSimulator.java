@@ -15,6 +15,7 @@ public class TankSimulator extends Frame {
 	
 	private Label lblUeberschrift = new Label("Tank-Simulator");
 	public  Label lblFuellstand = new Label("     ");
+	public Label lblProzent = new Label("     ");
 	
 	public Button btnBeenden = new Button("Beenden");
 	public Button btnEinfuellen = new Button("Einf�llen");
@@ -24,6 +25,7 @@ public class TankSimulator extends Frame {
 	private Panel pnlNorth = new Panel();
 	private Panel pnlCenter = new Panel(new FlowLayout());
 	private Panel pnlSouth = new Panel(new GridLayout(1, 0));
+	private Panel pnlCenter1 =  new Panel( new GridLayout (1,0));
 
 	private MyActionListener myActionListener = new MyActionListener(this);
 
@@ -39,9 +41,11 @@ public class TankSimulator extends Frame {
 		this.pnlSouth.add(this.btnVerbrauchen);
 		this.pnlSouth.add(this.btnZuruecksetzen);
 		this.pnlSouth.add(this.btnBeenden);
+		this.pnlCenter1.add(this.lblProzent);
 		this.add(this.pnlNorth, BorderLayout.NORTH);
 		this.add(this.pnlCenter, BorderLayout.CENTER);
 		this.add(this.pnlSouth, BorderLayout.SOUTH);
+		this.add(this.pnlCenter1, BorderLayout.WEST);
 		this.pack();
 		this.setVisible(true);
 		

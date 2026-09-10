@@ -2,14 +2,17 @@ package de.futurehome.tanksimulator;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
-public class MyActionListener implements ActionListener {
+public class MyActionListener implements ActionListener, ChangeListener {
     public TankSimulator f;
 
     public MyActionListener(TankSimulator f) {
         this.f = f;
     }
 
+    @Override
     public void actionPerformed(ActionEvent e) {
         Object obj = e.getSource();
 
@@ -22,19 +25,29 @@ public class MyActionListener implements ActionListener {
         }
 
         if (obj == f.btnVerbrauchen) {
-            f.myTank.verbrauchen(2);
+            // Liest den Wert direkt aus dem Slider aus!
+            int verbrauchswert = f.sldVerbrauch.getValue();
+            f.myTank.verbrauchen(verbrauchswert);
         }
 
         if (obj == f.btnZuruecksetzen) {
             f.myTank.zuruecksetzen();
         }
 
-        // Füllstand als Zahl
+        // Anzeige aktualisieren
+        aktualisiereAnzeige();
+    }
+
+    // Wird aufgerufen, wenn der Slider bewegt wird
+    @Override
+    public void stateChanged(ChangeEvent e) {
+        int verbrauchswert = f.sldVerbrauch.getValue();
+        f.lblVerbrauchText.setText("Verbrauch: " + verbrauchswert + " L");
+    }
+
+    private void aktualisiereAnzeige() {
         double aktuellerFuellstand = f.myTank.getFuellstand();
         f.lblFuellstand.setText(aktuellerFuellstand + " L");
-
-        // Füllstand in der ProgressBar aktualisieren
         f.prgFuellstand.setValue((int) aktuellerFuellstand);
     }
-}	
-	
+}

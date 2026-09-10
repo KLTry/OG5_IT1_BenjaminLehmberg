@@ -29,10 +29,12 @@ public class MyActionListener implements ActionListener {
             f.myTank.zuruecksetzen();
         }
 
-        // Anzeige nach jeder Aktion zentral aktualisieren
-        f.lblFuellstand.setText(f.myTank.getFuellstand() + " L");
-        f.lblProzent.setText("(" + f.myTank.getProzent() + "%)");
+        // Füllstand als Zahl
+        double aktuellerFuellstand = f.myTank.getFuellstand();
+        f.lblFuellstand.setText(aktuellerFuellstand + " L");
+
+        // Füllstand in der ProgressBar aktualisieren
+        f.prgFuellstand.setValue((int) aktuellerFuellstand);
     }
-}
-	
+}	
 	

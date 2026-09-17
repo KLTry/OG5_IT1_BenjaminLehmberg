@@ -85,6 +85,6 @@ public class Haustier {
     }
 
     public void heilen() {
-        
+        setGesund(100);
     }
 }

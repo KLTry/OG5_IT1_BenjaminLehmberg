@@ -73,15 +73,15 @@ public class Haustier {
 
     // Methoden (vorerst ohne Inhalt)
     public void fuettern(int anzahl) {
-        
+        setHunger(this.hunger + anzahl);
     }
 
     public void schlafen(int dauer) {
-        
+        setMuede(this.muede + dauer);
     }
 
     public void spielen(int dauer) {
-        
+        setZufrieden(this.zufrieden + dauer);
     }
 
     public void heilen() {

@@ -24,7 +24,9 @@ public class Haustier {
 	}
 
 	public void setHunger(int hunger) {
+		if(hunger > 0 && hunger < 100) {
 		this.hunger = hunger;
+		}
 	}
 
 	public int getMuede() {
@@ -32,7 +34,9 @@ public class Haustier {
 	}
 
 	public void setMuede(int muede) {
+		if(hunger > 0 && hunger < 100) {
 		this.muede = muede;
+		}
 	}
 
 	public int getZufrieden() {
@@ -40,7 +44,9 @@ public class Haustier {
 	}
 
 	public void setZufrieden(int zufrieden) {
+		if(hunger > 0 && hunger < 100) {
 		this.zufrieden = zufrieden;
+		}
 	}
 
 	public int getGesund() {
@@ -48,7 +54,9 @@ public class Haustier {
 	}
 
 	public void setGesund(int gesund) {
+		if(hunger > 0 && hunger < 100) {
 		this.gesund = gesund;
+		}
 	}
 
 	public String getName() {
@@ -56,7 +64,9 @@ public class Haustier {
 	}
 
 	public void setName(String name) {
+		if(hunger > 0 && hunger < 100) {
 		this.name = name;
+		}
 	};
 	
 	public void fuettern(int anzahl) {

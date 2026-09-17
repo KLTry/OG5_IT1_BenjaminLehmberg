@@ -12,8 +12,12 @@ public class Haustier {
 	//MEthoden
 	
 	public Haustier() {};
-	
-	public Haustier(String name) {}
+	public Haustier(String name) {
+		this.hunger = 100;
+		this.muede = 100; 
+		this.zufrieden = 100;
+		this.gesund = 100; 
+	}
 
 	public int getHunger() {
 		return hunger;

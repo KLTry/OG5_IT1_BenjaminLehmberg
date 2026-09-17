@@ -70,6 +70,7 @@ public class Haustier {
 	};
 	
 	public void fuettern(int anzahl) {
+		this.hunger += hunger + anzahl;
 		
 	};
 	

@@ -2,91 +2,89 @@ package omnom;
 
 public class Haustier {
 
-	//Attribute
-	private int hunger; 
-	private int muede;
-	private int zufrieden;
-	private int gesund;
-	private String name; 
-	
-	//MEthoden
-	
-	public Haustier() {};
-	public Haustier(String name) {
-		this.hunger = 100;
-		this.muede = 100; 
-		this.zufrieden = 100;
-		this.gesund = 100; 
-	}
+    // Attribute
+    private int hunger; 
+    private int muede;
+    private int zufrieden;
+    private int gesund;
+    private String name; 
 
-	public int getHunger() {
-		return hunger;
-	}
+    // Konstruktoren
+    public Haustier() {
+        this.hunger = 100;
+        this.muede = 100;
+        this.zufrieden = 100;
+        this.gesund = 100;
+    }
 
-	public void setHunger(int hunger) {
-		if(hunger > 0 && hunger < 100) {
-		this.hunger = hunger;
-		}
-	}
+    public Haustier(String name) {
+        this(); // Ruft den Standard-Konstruktor auf, um die int-Werte auf 100 zu setzen
+        this.name = name;
+    }
 
-	public int getMuede() {
-		return muede;
-	}
+    // Getter & Setter
+    public int getHunger() {
+        return hunger;
+    }
 
-	public void setMuede(int muede) {
-		if(hunger > 0 && hunger < 100) {
-		this.muede = muede;
-		}
-	}
+    public void setHunger(int hunger) {
+        if (hunger >= 0 && hunger <= 100) {
+            this.hunger = hunger;
+        }
+    }
 
-	public int getZufrieden() {
-		return zufrieden;
-	}
+    public int getMuede() {
+        return muede;
+    }
 
-	public void setZufrieden(int zufrieden) {
-		if(hunger > 0 && hunger < 100) {
-		this.zufrieden = zufrieden;
-		}
-	}
+    public void setMuede(int muede) {
+        if (muede >= 0 && muede <= 100) {
+            this.muede = muede;
+        }
+    }
 
-	public int getGesund() {
-		return gesund;
-	}
+    public int getZufrieden() {
+        return zufrieden;
+    }
 
-	public void setGesund(int gesund) {
-		if(hunger > 0 && hunger < 100) {
-		this.gesund = gesund;
-		}
-	}
+    public void setZufrieden(int zufrieden) {
+        if (zufrieden >= 0 && zufrieden <= 100) {
+            this.zufrieden = zufrieden;
+        }
+    }
 
-	public String getName() {
-		return name;
-	}
+    public int getGesund() {
+        return gesund;
+    }
 
-	public void setName(String name) {
-		if(hunger > 0 && hunger < 100) {
-		this.name = name;
-		}
-	};
-	
-	public void fuettern(int anzahl) {
-		this.hunger += hunger + anzahl;
-		
-	};
-	
-	public void schlafen(int dauer) {
-		
-	};
-	
-	public void spielen(int dauer) {
-		
-	};
-	
-	public void heilen() {
-		
-	};
-	
-	
-	
-	
+    public void setGesund(int gesund) {
+        if (gesund >= 0 && gesund <= 100) {
+            this.gesund = gesund;
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Methoden (vorerst ohne Inhalt)
+    public void fuettern(int anzahl) {
+        
+    }
+
+    public void schlafen(int dauer) {
+        
+    }
+
+    public void spielen(int dauer) {
+        
+    }
+
+    public void heilen() {
+        
+    }
 }

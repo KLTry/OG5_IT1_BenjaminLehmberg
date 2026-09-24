@@ -6,24 +6,24 @@ package de.oszimt.starsim2099;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Planet extends Himmelkoeper {
+public class Mond extends Himmelkoeper {
 
 	// Attribute
-	
-	private int anzahlHafen;
-	private double posX;
-	private double posY;
-	
-	// Methoden
 
-	public Planet () {};
-	
-	public int getAnzahlHafen() {
-		return anzahlHafen;
+
+	private double posX;
+	private String erzArt;
+	private double posY;
+
+	//Methoden
+	public Mond() {}
+
+	public String getErzArt() {
+		return erzArt;
 	}
 
-	public void setAnzahlHafen(int anzahlHafen) {
-		this.anzahlHafen = anzahlHafen;
+	public void setErzArt(String erzArt) {
+		this.erzArt = erzArt;
 	}
 
 	public double getPosX() {
@@ -50,5 +50,3 @@ public class Planet extends Himmelkoeper {
 
 	}
 }
-
-	

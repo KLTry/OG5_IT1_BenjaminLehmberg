@@ -38,15 +38,25 @@ public class Main {
 		meineErde.setAnzahlHafen(2);
 		meineErde.setPosX(Math.random() * universumBreite);
 		meineErde.setPosY(Math.random() * universumHoehe);
+		meineErde.setArt("Rund");
 		meinGame.addPlanet(meineErde);
 
 		Planet meinCentaurus = new Planet();
 		meinCentaurus.setName("Centaurus 7");
 		meinCentaurus.setAnzahlHafen(1);
+		meineErde.setArt("Eckig");
 		meinCentaurus.setPosX(Math.random() * universumBreite);
 		meinCentaurus.setPosY(Math.random() * universumHoehe);
 		meinGame.addPlanet(meinCentaurus);
 
+		// Mond hinzufügen
+		Mond meineMond = new Mond();
+		meineMond.setName("Mond");
+		meineMond.setErzArt("DIA");
+		meineErde.setArt("Rund");
+		meineMond.setPosX(Math.random() * universumBreite);
+		meineMond.setPosY(Math.random() * universumHoehe);
+		meinGame.addMond(meineMond);
 
 		//// Ladungen hinzufügen
 		// Pamps (grün)

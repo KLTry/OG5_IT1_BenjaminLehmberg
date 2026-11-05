@@ -8,7 +8,7 @@ public class Primzahlen {
 
 		try (Scanner scan = new Scanner(System.in)) {
 			System.out.println("Geben Sie mir eine Zahl, die auf Primzahl geprüft werden soll!");
-			int zahl = scan.nextInt();
+			long zahl = scan.nextLong();
 
 			long startZeit = System.nanoTime();
 
@@ -28,10 +28,10 @@ public class Primzahlen {
 		if(zahl == 1)
 		{ prim = true; 
 		} else {
-			for ( int i = 2; i <= zahl - 1; i++ ) {
+			for ( long i = 2; i <= zahl - 1; i++ ) {
 				if(zahl % i == 0) {
 					prim = false;
-					i = (int) zahl;
+					i = (long) zahl;
 				} 		
 			}
 		}

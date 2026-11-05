@@ -1,6 +1,5 @@
 package test;
 
-
 import java.util.Scanner;
 
 public class Primzahlen {
@@ -23,15 +22,16 @@ public class Primzahlen {
 		}
 	}
 
-	public static boolean isPrim(long Zahl) {
+	public static boolean isPrim(long zahl) {
+		zahl = Math.abs(zahl);
 		boolean prim = true; 
-		if(Zahl == 1)
+		if(zahl == 1)
 		{ prim = true; 
 		} else {
-			for ( int i = 2; i <= Zahl - 1; i++ ) {
-				if(Zahl % i == 0) {
+			for ( int i = 2; i <= zahl - 1; i++ ) {
+				if(zahl % i == 0) {
 					prim = false;
-					i = (int) Zahl;
+					i = (int) zahl;
 				} 		
 			}
 		}

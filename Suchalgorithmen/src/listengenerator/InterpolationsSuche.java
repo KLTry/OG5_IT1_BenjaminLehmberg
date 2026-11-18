@@ -17,7 +17,7 @@ public class InterpolationsSuche {
         return zahlenliste;
     }
     
-    public static int interpolationSearch(long[] liste, long gesuchteZahl) {
+    public static int interpolationsSuche(long[] liste, long gesuchteZahl) {
         int links = 0;
         int rechts = liste.length - 1;
         
@@ -57,7 +57,7 @@ public class InterpolationsSuche {
         
         long time = System.nanoTime(); 
         
-        int stelle = interpolationSearch(a, gesuchteZahl);
+        int stelle = interpolationsSuche(a, gesuchteZahl);
         
         long dauerNano = System.nanoTime() - time;
         

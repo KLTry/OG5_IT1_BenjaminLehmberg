@@ -23,10 +23,10 @@ public class LineareSuche {
         System.out.println("Generiere Liste für Lineare Suche...");
         long[] a = getSortedList(ANZAHL);
         
-        long gesuchteZahl = a[ANZAHL-1];
+        long gesuchteZahl = 19999998;
         System.out.println("Starte Lineare Suche nach: " + gesuchteZahl);
         
-        long time = System.currentTimeMillis();
+        long time = System.nanoTime();
         int stelle = -1; 
         
         for(int i = 0; i < a.length; i++) {
@@ -36,9 +36,9 @@ public class LineareSuche {
             }
         }
         
-        long dauer = System.currentTimeMillis() - time;
+        long dauer = System.nanoTime() - time;
         
         System.out.println("Gefunden an Stelle: " + stelle); 
-        System.out.println("Dauer Lineare Suche: " + dauer + " ms");
+        System.out.println("Dauer Lineare Suche: " + dauer + " ns");
     }
 }

@@ -47,12 +47,12 @@ public class InterpolationsSuche {
     }
     
     public static void main(String[] args){
-        final int ANZAHL = 20000000; 
+        final int ANZAHL = 60000000; 
         
         System.out.println("Generiere Liste für Interpolationssuche...");
         long[] a = getSortedList(ANZAHL);
         
-        long gesuchteZahl = a[ANZAHL-1];
+        long gesuchteZahl = 2000000;
         System.out.println("Starte Interpolationssuche nach: " + gesuchteZahl);
         
         long time = System.nanoTime(); 
@@ -62,6 +62,6 @@ public class InterpolationsSuche {
         long dauerNano = System.nanoTime() - time;
         
         System.out.println("Gefunden an Stelle: " + stelle);
-        System.out.println("Dauer Interpolationssuche: " + (dauerNano / 1_000_000.0) + " ms");
+        System.out.println("Dauer Interpolationssuche: " + dauerNano + "ns");
     }
 }
